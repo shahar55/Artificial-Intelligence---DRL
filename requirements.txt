@@ -1,0 +1,7 @@
+gymnasium[box2d]
+moviepy
+torch
+torchvision
+torchaudio
+numpy
+matplotlib
