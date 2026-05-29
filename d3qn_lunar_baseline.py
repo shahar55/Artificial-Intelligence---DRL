@@ -10,16 +10,16 @@ import matplotlib.pyplot as plt
 # GLOBAL HYPERPARAMETERS (Constants)
 # ==========================================
 LR = 5e-4                  # Learning rate for the Adam optimizer
-GAMMA = 0.90               # Discount factor for future rewards
-UPDATE_TARGET = 5        # Frequency (in optimization steps) to sync target network
-BUFFER_CAPACITY = 300    # Total capacity of the prioritized replay buffer
+GAMMA = 0.99               # Discount factor for future rewards
+UPDATE_TARGET = 300        # Frequency (in optimization steps) to sync target network
+BUFFER_CAPACITY = 80000    # Total capacity of the prioritized replay buffer
 ALPHA = 0.9                # PER prioritization exponent factor
 BETA_START = 0.4           # Initial value of the PER importance-sampling exponent
-TOTAL_EPISODES = 100       # Total number of training episodes
+TOTAL_EPISODES = 500       # Total number of training episodes
 BATCH_SIZE = 64            # Size of mini-batches sampled from the buffer
 EPSILON_START = 1.0        # Initial exploration probability (starts at 100% random actions)
 EPSILON_MIN = 0.01         # Minimum exploration probability limit (stops decaying at 1%)
-EPSILON_DECAY = 0.98       # Decay rate per episode for epsilon-greedy policy
+EPSILON_DECAY = 0.995       # Decay rate per episode for epsilon-greedy policy
 
 # ==========================================
 # 1. Dueling Q-Network

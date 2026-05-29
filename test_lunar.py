@@ -2,6 +2,8 @@ import gymnasium as gym
 import torch
 import numpy as np
 import os
+from datetime import datetime
+
 
 # טעינת המודל מתוך קובץ הסטודנטים
 from d3qn_lunar_baseline import DuelingQNetwork 
@@ -18,8 +20,7 @@ def evaluate_lunar_lander(model_path, video_folder="./lunar_videos"):
         env, 
         video_folder=video_folder, 
         episode_trigger=lambda episode_id: episode_id == 0,
-        name_prefix="d3qn_lunar_flight"
-    )
+        name_prefix = f"flight_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}")
     
     # 3. אתחול וטעינת נתונים
     state, info = env.reset()
