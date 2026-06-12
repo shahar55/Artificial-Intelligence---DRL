@@ -201,10 +201,11 @@ class D3QNAgent:
 
         # Advance optimization step counter
         self.update_counter += 1
+        TAU = 0.005
 
-        # Hard Update mechanism: Copy online network weights to target network every UPDATE_TARGET steps
-        if self.update_counter % UPDATE_TARGET == 0:
-            self.target_net.load_state_dict(self.online_net.state_dict())
+        # Soft update target network
+        for target_param, online_param in zip(self.target_net.parameters(), self.online_net.parameters()):
+            target_param.data.copy_(TAU * online_param.data + (1.0 - TAU) * target_param.data)
 
         return loss.item()
 
